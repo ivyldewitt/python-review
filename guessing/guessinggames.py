@@ -32,4 +32,3 @@ while attempts < attempt_max:
     
     
 print("Thanks for playing!")
-

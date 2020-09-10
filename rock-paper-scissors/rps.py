@@ -85,15 +85,19 @@ def check_winner(roll1, roll2, player_2, player_1):
 
 
 def get_roll(player_name, rolls):
-    pass
-    roll = input(f"{player_name}, what is your roll? [rock, paper, scissors]: ")
-    roll = roll.lower().strip()
+    print("Available Rolls:")
+    for index, r in enumerate(rolls, start=1):
+        print(f"{index}. {r}")
+        index += 1
 
-    if roll not in rolls:
-        print(f"Sorry {player_name}, {roll} is not a valid roll.")
+    prompt = input(f"{player_name}, what is your roll? [rock, paper, scissors]: ")
+    selected_index = int(prompt) - 1
+
+    if selected_index < 0 or selected_index >= len(rolls):
+        print(f"Sorry {player_name}, {text} is not a valid roll.")
         return None
     
-    return roll
+    return rolls[selected_index]
 
 
 if __name__ == '__main__':
