@@ -25,6 +25,14 @@ print(ste)
 dictionary = {
     'bob': 0,
     'sarah': 0,
+    'defeated_by': {
+        'paper',
+        'scissors'
+    },
+    'defeats': {
+        'scissors',
+        'plastic'
+    }
 }
 
 print(dictionary['bob'])
@@ -33,3 +41,15 @@ print(dictionary['bob'])
 print(dictionary)
 dictionary['ivy'] = 2
 print(dictionary)
+print(f"You are defeated by {dictionary['defeated_by']}.")
+print(dictionary.get('other', 42))
+
+#Alternative way to create a dictionary
+
+d = dict()
+
+d_two = dict(bill=2, zoe=7, michael=10)
+
+name = 'zoe'
+
+print(f"Wins by {name} are {d_two[name]}.")
