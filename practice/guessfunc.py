@@ -2,11 +2,6 @@
 
 import random
 
-def main():
-    setup_game()
-    guessing()
-
-
 
 print("-----------------------------------")
 print("-------- M&M Guessing Game --------")
@@ -14,14 +9,9 @@ print("-----------------------------------")
 
 # Setup game requirements.
 
-
-def setup_game():
-    print("Guess the number & you get lunch on the house!")
-    print()
-    mm_count = random.randint(1,100)
-    attempt_max = 5
-    attempts = 0
-    return attempts, attempt_max, mm_count
+print("Guess the number & you get lunch on the house!")
+print()
+mm_count = random.randint(1,100)
 
 # sanity testing that the break statement was working as intended. 
 # print(mm_count)
@@ -29,6 +19,8 @@ def setup_game():
 # Loop over requirements.
 
 def guessing():
+    attempt_max = 5
+    attempts = 0
     while attempts < attempt_max:
         guess_str = input("How many M&M do you think there are in the jar? ")
         guess = int(guess_str)
@@ -43,9 +35,7 @@ def guessing():
     print("Thanks for playing!")
 
     
-    
+guessing()    
 
 
 
-if __name__ == '__main__':
-    main()
