@@ -94,7 +94,7 @@ def get_roll(player_name, rolls):
     selected_index = int(prompt) - 1
 
     if selected_index < 0 or selected_index >= len(rolls):
-        print(f"Sorry {player_name}, {text} is not a valid roll.")
+        print(f"Sorry {player_name}, {selected_index} is not a valid roll.")
         return None
     
     return rolls[selected_index]
