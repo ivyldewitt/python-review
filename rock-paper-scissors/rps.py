@@ -40,7 +40,7 @@ def start_game(player_1, player_2):
         #We created a method out of this function and wrapped everything together. This helps to check an accurate winner.
         winner = check_winner(roll1, roll2, player_2, player_1)
 
-        print("The game is over!")
+        # print("The game is over!")
         if winner is None:
             print("It was a tie!")
         else:   
@@ -94,7 +94,8 @@ def get_roll(player_name, rolls):
     selected_index = int(prompt) - 1
 
     if selected_index < 0 or selected_index >= len(rolls):
-        print(f"Sorry {player_name}, {selected_index} is not a valid roll.")
+        text = selected_index + 1
+        print(f"Sorry {player_name}, {text} is not a valid roll.")
         return None
     
     return rolls[selected_index]
