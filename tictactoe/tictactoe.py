@@ -28,13 +28,72 @@ def main():
     ## Step 2. Choose the initial player
     # Using a list may make it easier than having to do individual variables,which we did in rps
     active_player_index = 0
-    players = [" You", "Computer"]
+    players = ["Ivy", "Computer"]
     # We can use modulo to toggle if we wanted to.
-    active_player_index = (active_player_index + 1) % 2
+    # active_player_index = (active_player_index + 1) % 2
     players[active_player_index]
     player_symbols = ["X", "O"]
+    #List out current player, swap in while loop. 
+    player = players[active_player_index] 
+
+    # Step 4 – Until someone wins
+    while not find_winnner(board):
+        # Begin process of playing the round
+        player = players[active_player_index] 
+        symbol = player_symbols[active_player_index]
+        announce_turn(player)
+        show_board(board)
+        if not choose_location(board, symbol):
+            print("That isn't an option! Please try another spot.")
+            continue
+
+        # Toggle Active Player
+        active_player_index = (active_player_index + 1) % len(players)
+
+    print(f"Game Over: {player} has won with the board.")
+    show_board(board)
 
 
+def announce_turn(player):
+    # SHOW THE BOARD
+    print(f"It's {player}'s turn. Here's the board:")
+    print()
+
+
+def show_board(board):
+    for row in board:
+        # Begin by printing the separator, with "End" is presumably the way to end the row in place
+        print("| ", end="")
+        for cell in row:
+            symbol = cell if cell is not None else "_"
+            # Print each option and run through the different "pieces/names"
+            print(symbol, end=" | ")
+        print()
+
+
+def choose_location(board, symbol):
+    row = int(input("Choose which row: "))
+    col = int(input("Choose which column: "))
+
+    row -= 1
+    col -= 1
+
+    if row < 0 or row >= len(board):
+        return False
+
+    if col < 0 or col >= len(board[0]):
+        return False
+
+    cell = board[row][col]
+    if cell is not None:
+        return False
+
+    board[row][col] = symbol
+    return True
+
+def find_winnner(board):
+    # TODO: 3a Check for Winner
+    return False
 
 
 if __name__ == '__main__':
