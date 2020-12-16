@@ -93,6 +93,12 @@ def choose_location(board, symbol):
 
 def find_winnner(board):
     # TODO: 3a Check for Winner
+
+    # Win by rows
+
+    # Win by columns
+
+    # Win by diagonals
     return False
 
 
